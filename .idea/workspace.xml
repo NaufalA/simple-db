@@ -1,11 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="4500894b-9806-4957-b796-3af5892d6b67" name="Changes" comment="" />
+    <list default="true" id="4500894b-9806-4957-b796-3af5892d6b67" name="Changes" comment="Add base classes and Mahasiswa feature&#10;&#10;- Add base classes for Repository, Service and Controller&#10;- Add Mahasiswa feature">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/enigmacamp/simpledb/mahasiswa/MahasiswaController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/enigmacamp/simpledb/mahasiswa/MahasiswaRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/enigmacamp/simpledb/mahasiswa/MahasiswaService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/enigmacamp/simpledb/mahasiswa/models/MahasiswaModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/enigmacamp/simpledb/shared/classes/ControllerBase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/enigmacamp/simpledb/shared/classes/RepositoryBase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/enigmacamp/simpledb/shared/classes/ServiceBase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/enigmacamp/simpledb/shared/utils/InputValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2HGlAB9e4ebfDA4a1wcLvSr6tjx" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -16,9 +44,25 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true"
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "/home/user/Code/Intro/java-fundamental"
   }
 }]]></component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="simple-db" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -28,6 +72,14 @@
       <option name="presentableId" value="Default" />
       <updated>1667919161378</updated>
     </task>
+    <task id="LOCAL-00001" summary="Initial commit">
+      <created>1667919182537</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1667919182537</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -40,5 +92,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Initial commit" />
+    <MESSAGE value="Add base classes and Mahasiswa feature&#10;&#10;- Add base classes for Repository, Service and Controller&#10;- Add Mahasiswa feature" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add base classes and Mahasiswa feature&#10;&#10;- Add base classes for Repository, Service and Controller&#10;- Add Mahasiswa feature" />
   </component>
 </project>
