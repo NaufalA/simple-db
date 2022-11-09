@@ -9,8 +9,8 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        MahasiswaRepository mahasiswaRepository = new MahasiswaRepository();
-        MahasiswaService mahasiswaService = new MahasiswaService(mahasiswaRepository, 5);
+        MahasiswaRepository mahasiswaRepository = new MahasiswaRepository(5);
+        MahasiswaService mahasiswaService = new MahasiswaService(mahasiswaRepository);
         MahasiswaController mahasiswaController = new MahasiswaController(mahasiswaService, scanner, "Mahasiswa");
 
 

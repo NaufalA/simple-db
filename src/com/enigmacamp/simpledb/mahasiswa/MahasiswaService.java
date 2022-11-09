@@ -4,8 +4,8 @@ import com.enigmacamp.simpledb.mahasiswa.models.MahasiswaModel;
 import com.enigmacamp.simpledb.shared.classes.ServiceBase;
 
 public class MahasiswaService extends ServiceBase<MahasiswaModel> {
-    public MahasiswaService(MahasiswaRepository mahasiswaRepository, int storageSize) {
-        super(mahasiswaRepository, storageSize);
+    public MahasiswaService(MahasiswaRepository mahasiswaRepository) {
+        super(mahasiswaRepository);
     }
 
     @Override

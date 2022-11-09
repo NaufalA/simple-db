@@ -6,17 +6,27 @@ import java.util.ArrayList;
 
 public abstract class RepositoryBase<T> implements Repository<T> {
     public final ArrayList<T> storage;
+    public final Integer maxSize;
 
-    public RepositoryBase() {
+    public RepositoryBase(Integer maxSize) {
         storage = new ArrayList<>();
+        this.maxSize = maxSize;
     }
 
-    public T add(T newItem) {
+    public T add(T newItem) throws Exception {
+        if (storage.size() >= maxSize) {
+            throw new Exception("Database Penuh!");
+        }
+
         storage.add(newItem);
         return newItem;
     }
 
-    public T delete(T deletedItem) {
+    public T delete(Integer index) throws Exception {
+        if (storage.isEmpty()) {
+            throw new Exception("Database Sudah Kosong!");
+        }
+        T deletedItem = getOne(index);
         storage.remove(deletedItem);
         return deletedItem;
     }
@@ -29,7 +39,7 @@ public abstract class RepositoryBase<T> implements Repository<T> {
         return storage.get(index);
     }
 
-    public Integer getDataCount() {
+    public Integer getSize() {
         return storage.size();
     }
 }
