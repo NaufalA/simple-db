@@ -12,8 +12,8 @@ public class MahasiswaController extends ControllerBase<MahasiswaModel> {
     }
 
     @Override
-    public void createItem(Scanner scanner) {
-        super.createItem(scanner);
+    public void createItemMenu(Scanner scanner) {
+        super.createItemMenu(scanner);
         boolean dataInvalid;
         do {
             MahasiswaModel newMhs = new MahasiswaModel();
@@ -34,8 +34,8 @@ public class MahasiswaController extends ControllerBase<MahasiswaModel> {
     }
 
     @Override
-    public void deleteItem() {
-        super.deleteItem();
+    public void deleteItemMenu() {
+        super.deleteItemMenu();
         try {
             MahasiswaModel deletedMhs = service.removeItem(service.getDataCount() - 1);
             System.out.println("Mahasiswa yang terakhir masuk didelete");
@@ -47,10 +47,10 @@ public class MahasiswaController extends ControllerBase<MahasiswaModel> {
     }
 
     @Override
-    public void viewItem(Scanner scanner) {
+    public void viewItemMenu(Scanner scanner) {
         Boolean inputInvalid;
         do {
-            super.viewItem(scanner);
+            super.viewItemMenu(scanner);
             int choice = InputValidator.handleIntegerInput(scanner, true);
             inputInvalid = handleViewMenuInput(choice, scanner);
         } while (inputInvalid);

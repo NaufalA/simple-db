@@ -39,13 +39,13 @@ public abstract class ControllerBase<T> {
     public Integer handleMenuInput(Scanner scanner, Integer choice) {
         switch (choice) {
             case 1:
-                createItem(scanner);
+                createItemMenu(scanner);
                 break;
             case 2:
-                deleteItem();
+                deleteItemMenu();
                 break;
             case 3:
-                viewItem(scanner);
+                viewItemMenu(scanner);
                 break;
             case 4:
                 break;
@@ -57,19 +57,16 @@ public abstract class ControllerBase<T> {
         return choice;
     }
 
-    public void createItem(Scanner scanner) {
+    public void createItemMenu(Scanner scanner) {
         printMenuHeader("1. Add " + dbName);
     }
 
-    public void deleteItem() {
+    public void deleteItemMenu() {
         printMenuHeader("2. Delete " + dbName);
     }
 
-    public void viewItem(Scanner scanner) {
+    public void viewItemMenu(Scanner scanner) {
         printViewMenu();
-    }
-
-    public void printItem(T item) {
     }
 
     public Boolean handleViewMenuInput(Integer input, Scanner scanner) {
@@ -96,8 +93,9 @@ public abstract class ControllerBase<T> {
 
     public void viewByIndex(Integer index) {
         try {
+            T item = service.getOne(index);
             System.out.println(index + ".");
-            printItem(service.getOne(index));
+            printItem(item);
             System.out.println("\n--------------------------------------\n");
         } catch (Exception e) {
             System.out.println("\n" + e.getMessage());
@@ -112,5 +110,7 @@ public abstract class ControllerBase<T> {
             printItem(items.get(i));
         }
     }
+
+    public void printItem(T item) {}
 
 }
