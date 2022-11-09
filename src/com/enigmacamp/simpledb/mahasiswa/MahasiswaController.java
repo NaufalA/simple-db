@@ -52,7 +52,7 @@ public class MahasiswaController extends ControllerBase<MahasiswaModel> {
         do {
             super.viewItemMenu();
             int choice = InputValidator.handleIntegerInput(scanner, true);
-            inputInvalid = handleViewMenuInput(choice, scanner);
+            inputInvalid = handleViewMenuInput(choice);
         } while (inputInvalid);
     }
 }

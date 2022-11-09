@@ -1,13 +1,13 @@
 package com.enigmacamp.simpledb.shared.classes;
 
+import com.enigmacamp.simpledb.shared.interfaces.Controller;
 import com.enigmacamp.simpledb.shared.utils.InputValidator;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public abstract class ControllerBase<T> {
+public abstract class ControllerBase<T> implements Controller<T> {
     public final ServiceBase<T> service;
-
     public final Scanner scanner;
     public final String dbName;
 
@@ -72,7 +72,7 @@ public abstract class ControllerBase<T> {
         printViewMenu();
     }
 
-    public Boolean handleViewMenuInput(Integer input, Scanner scanner) {
+    public Boolean handleViewMenuInput(Integer input) {
         boolean inputInvalid;
         switch (input) {
             case 1:
@@ -107,7 +107,7 @@ public abstract class ControllerBase<T> {
 
     public void viewAll() {
         printMenuHeader("View By All");
-        ArrayList<T> items = service.getAllItem();
+        ArrayList<T> items = service.getAll();
         for (int i = 0; i < items.size(); i++) {
             System.out.println((i + 1) + ".");
             System.out.println(items.get(i));

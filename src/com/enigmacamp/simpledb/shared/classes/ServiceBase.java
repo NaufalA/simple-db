@@ -1,8 +1,10 @@
 package com.enigmacamp.simpledb.shared.classes;
 
+import com.enigmacamp.simpledb.shared.interfaces.Service;
+
 import java.util.ArrayList;
 
-public abstract class ServiceBase<T> {
+public abstract class ServiceBase<T> implements Service<T> {
     public final RepositoryBase<T> repository;
     public final int storageSize;
 
@@ -29,7 +31,7 @@ public abstract class ServiceBase<T> {
         return deletedItem;
     }
 
-    public ArrayList<T> getAllItem() {
+    public ArrayList<T> getAll() {
         return repository.getAll();
     }
 

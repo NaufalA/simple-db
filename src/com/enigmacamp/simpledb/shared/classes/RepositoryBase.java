@@ -1,8 +1,10 @@
 package com.enigmacamp.simpledb.shared.classes;
 
+import com.enigmacamp.simpledb.shared.interfaces.Repository;
+
 import java.util.ArrayList;
 
-public abstract class RepositoryBase<T> {
+public abstract class RepositoryBase<T> implements Repository<T> {
     public final ArrayList<T> storage;
 
     public RepositoryBase() {
