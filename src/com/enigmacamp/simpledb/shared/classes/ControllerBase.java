@@ -98,7 +98,7 @@ public abstract class ControllerBase<T> {
         try {
             T item = service.getOne(index);
             System.out.println(index + ".");
-            printItem(item);
+            System.out.println(item);
             System.out.println("\n--------------------------------------\n");
         } catch (Exception e) {
             System.out.println("\n" + e.getMessage());
@@ -110,10 +110,7 @@ public abstract class ControllerBase<T> {
         ArrayList<T> items = service.getAllItem();
         for (int i = 0; i < items.size(); i++) {
             System.out.println((i + 1) + ".");
-            printItem(items.get(i));
+            System.out.println(items.get(i));
         }
     }
-
-    public void printItem(T item) {}
-
 }

@@ -39,7 +39,7 @@ public class MahasiswaController extends ControllerBase<MahasiswaModel> {
         try {
             MahasiswaModel deletedMhs = service.removeItem(service.getDataCount() - 1);
             System.out.println("Mahasiswa yang terakhir masuk didelete");
-            printItem(deletedMhs);
+            System.out.println(deletedMhs);
             System.out.println("\n--------------------------------------\n");
         } catch (Exception e) {
             System.out.println("\n" + e.getMessage());
@@ -54,12 +54,5 @@ public class MahasiswaController extends ControllerBase<MahasiswaModel> {
             int choice = InputValidator.handleIntegerInput(scanner, true);
             inputInvalid = handleViewMenuInput(choice, scanner);
         } while (inputInvalid);
-    }
-
-    @Override
-    public void printItem(MahasiswaModel item) {
-        System.out.printf("Nama    : %s\n", item.nama);
-        System.out.printf("Umur    : %d\n", item.umur);
-        System.out.printf("Jurusan : %s\n", item.jurusan);
     }
 }
