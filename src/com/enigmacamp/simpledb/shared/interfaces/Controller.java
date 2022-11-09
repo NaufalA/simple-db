@@ -1,6 +1,8 @@
 package com.enigmacamp.simpledb.shared.interfaces;
 
 public interface Controller<T> {
+    Boolean run();
+
     void printMenu();
 
     void printViewMenu();

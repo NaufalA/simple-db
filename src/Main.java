@@ -13,10 +13,32 @@ public class Main {
         MahasiswaService mahasiswaService = new MahasiswaService(mahasiswaRepository, 5);
         MahasiswaController mahasiswaController = new MahasiswaController(mahasiswaService, scanner, "Mahasiswa");
 
-        int choice = 0;
-        while (choice != 4) {
-            mahasiswaController.printMenu();
-            choice = mahasiswaController.handleMenuInput(InputValidator.handleIntegerInput(scanner, true));
+
+        boolean shouldCloseApp = false;
+        while (!shouldCloseApp) {
+            System.out.println("\n--------------------------------------\n");
+            System.out.println("MAIN MENU");
+            System.out.println("\n--------------------------------------\n");
+            System.out.println("1. MAHASISWA");
+            System.out.println("0. EXIT");
+            System.out.println("\n--------------------------------------\n");
+            System.out.println("Pilih Database: ");
+            Integer selection = InputValidator.handleIntegerInput(scanner, true);
+            boolean shouldExit;
+            switch (selection) {
+                case 1:
+                    shouldExit = false;
+                    while (!shouldExit) {
+                        shouldExit = mahasiswaController.run();
+                    }
+                    break;
+                case 0:
+                    shouldCloseApp = true;
+                    break;
+                default:
+                    System.out.println("Menu tidak tersedia!");
+                    break;
+            }
         }
     }
 }

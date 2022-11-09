@@ -17,6 +17,11 @@ public abstract class ControllerBase<T> implements Controller<T> {
         this.dbName = dbName;
     }
 
+    public Boolean run() {
+        printMenu();
+        return handleMenuInput(InputValidator.handleIntegerInput(scanner, true)) == 4;
+    }
+
     public void printMenu() {
         printMenuHeader(dbName);
         System.out.println("1. Add " + dbName);
