@@ -7,15 +7,16 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
         MahasiswaRepository mahasiswaRepository = new MahasiswaRepository();
         MahasiswaService mahasiswaService = new MahasiswaService(mahasiswaRepository, 5);
-        MahasiswaController mahasiswaController = new MahasiswaController(mahasiswaService, "Mahasiswa");
+        MahasiswaController mahasiswaController = new MahasiswaController(mahasiswaService, scanner, "Mahasiswa");
 
-        Scanner scanner = new Scanner(System.in);
         int choice = 0;
         while (choice != 4) {
             mahasiswaController.printMenu();
-            choice = mahasiswaController.handleMenuInput(scanner, InputValidator.handleIntegerInput(scanner, true));
+            choice = mahasiswaController.handleMenuInput(InputValidator.handleIntegerInput(scanner, true));
         }
     }
 }

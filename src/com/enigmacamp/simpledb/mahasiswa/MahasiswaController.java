@@ -7,13 +7,13 @@ import com.enigmacamp.simpledb.shared.utils.InputValidator;
 import java.util.Scanner;
 
 public class MahasiswaController extends ControllerBase<MahasiswaModel> {
-    public MahasiswaController(MahasiswaService mahasiswaService, String dbName) {
-        super(mahasiswaService, dbName);
+    public MahasiswaController(MahasiswaService mahasiswaService, Scanner scanner, String dbName) {
+        super(mahasiswaService, scanner, dbName);
     }
 
     @Override
-    public void createItemMenu(Scanner scanner) {
-        super.createItemMenu(scanner);
+    public void createItemMenu() {
+        super.createItemMenu();
         boolean dataInvalid;
         do {
             MahasiswaModel newMhs = new MahasiswaModel();
@@ -47,10 +47,10 @@ public class MahasiswaController extends ControllerBase<MahasiswaModel> {
     }
 
     @Override
-    public void viewItemMenu(Scanner scanner) {
+    public void viewItemMenu() {
         Boolean inputInvalid;
         do {
-            super.viewItemMenu(scanner);
+            super.viewItemMenu();
             int choice = InputValidator.handleIntegerInput(scanner, true);
             inputInvalid = handleViewMenuInput(choice, scanner);
         } while (inputInvalid);

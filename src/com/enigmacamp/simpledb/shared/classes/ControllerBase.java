@@ -7,10 +7,13 @@ import java.util.Scanner;
 
 public abstract class ControllerBase<T> {
     public final ServiceBase<T> service;
+
+    public final Scanner scanner;
     public final String dbName;
 
-    public ControllerBase(ServiceBase<T> service, String dbName) {
+    public ControllerBase(ServiceBase<T> service, Scanner scanner, String dbName) {
         this.service = service;
+        this.scanner = scanner;
         this.dbName = dbName;
     }
 
@@ -36,16 +39,16 @@ public abstract class ControllerBase<T> {
         System.out.println("\n--------------------------------------\n");
     }
 
-    public Integer handleMenuInput(Scanner scanner, Integer choice) {
+    public Integer handleMenuInput(Integer choice) {
         switch (choice) {
             case 1:
-                createItemMenu(scanner);
+                createItemMenu();
                 break;
             case 2:
                 deleteItemMenu();
                 break;
             case 3:
-                viewItemMenu(scanner);
+                viewItemMenu();
                 break;
             case 4:
                 break;
@@ -57,7 +60,7 @@ public abstract class ControllerBase<T> {
         return choice;
     }
 
-    public void createItemMenu(Scanner scanner) {
+    public void createItemMenu() {
         printMenuHeader("1. Add " + dbName);
     }
 
@@ -65,7 +68,7 @@ public abstract class ControllerBase<T> {
         printMenuHeader("2. Delete " + dbName);
     }
 
-    public void viewItemMenu(Scanner scanner) {
+    public void viewItemMenu() {
         printViewMenu();
     }
 
