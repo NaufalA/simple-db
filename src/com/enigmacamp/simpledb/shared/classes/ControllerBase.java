@@ -36,16 +36,16 @@ public abstract class ControllerBase<T> {
         System.out.println("\n--------------------------------------\n");
     }
 
-    public Integer handleMenuInput(Integer choice) {
+    public Integer handleMenuInput(Scanner scanner, Integer choice) {
         switch (choice) {
             case 1:
-                createItem();
+                createItem(scanner);
                 break;
             case 2:
                 deleteItem();
                 break;
             case 3:
-                viewItem();
+                viewItem(scanner);
                 break;
             case 4:
                 break;
@@ -57,7 +57,7 @@ public abstract class ControllerBase<T> {
         return choice;
     }
 
-    public void createItem() {
+    public void createItem(Scanner scanner) {
         printMenuHeader("1. Add " + dbName);
     }
 
@@ -65,28 +65,33 @@ public abstract class ControllerBase<T> {
         printMenuHeader("2. Delete " + dbName);
     }
 
-    public void viewItem() {
+    public void viewItem(Scanner scanner) {
         printViewMenu();
     }
 
     public void printItem(T item) {
     }
 
-    public void handleViewMenuInput(Integer input, Scanner scanner) {
+    public Boolean handleViewMenuInput(Integer input, Scanner scanner) {
+        boolean inputInvalid;
         switch (input) {
             case 1:
                 printMenuHeader("View By Index");
                 System.out.print("Masukkan index yang ingin ditampilkan: ");
-                viewByIndex(InputValidator.handleIntegerInput(scanner, false));
+                viewByIndex(InputValidator.handleIntegerInput(scanner, true));
+                inputInvalid = false;
                 break;
             case 2:
                 viewAll();
+                inputInvalid = false;
                 break;
             default:
                 System.out.println("Menu tidak tersedia!");
+                inputInvalid = true;
                 break;
-
         }
+
+        return inputInvalid;
     }
 
     public void viewByIndex(Integer index) {

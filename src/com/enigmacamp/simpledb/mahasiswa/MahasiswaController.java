@@ -12,21 +12,25 @@ public class MahasiswaController extends ControllerBase<MahasiswaModel> {
     }
 
     @Override
-    public void createItem() {
-        super.createItem();
-        Scanner scanner = new Scanner(System.in);
-        MahasiswaModel newMhs = new MahasiswaModel();
-        System.out.print("Nama (3-20 Karakter)       : ");
-        newMhs.nama = scanner.nextLine();
-        System.out.print("Umur (min 17 Tahun)        : ");
-        newMhs.umur = InputValidator.handleIntegerInput(scanner, true);
-        System.out.print("Jurusan (maks 10 Karakter) : ");
-        newMhs.jurusan = scanner.nextLine();
-        try {
-            service.createItem(newMhs);
-        } catch (Exception e) {
-            System.out.println("\n" + e.getMessage());
-        }
+    public void createItem(Scanner scanner) {
+        super.createItem(scanner);
+        boolean dataInvalid;
+        do {
+            MahasiswaModel newMhs = new MahasiswaModel();
+            System.out.print("Nama (3-20 Karakter)       : ");
+            newMhs.nama = scanner.nextLine();
+            System.out.print("Umur (min 17 Tahun)        : ");
+            newMhs.umur = InputValidator.handleIntegerInput(scanner, false);
+            System.out.print("Jurusan (maks 10 Karakter) : ");
+            newMhs.jurusan = scanner.nextLine();
+            try {
+                service.createItem(newMhs);
+                dataInvalid = false;
+            } catch (Exception e) {
+                System.out.println("\n" + e.getMessage());
+                dataInvalid = true;
+            }
+        } while (dataInvalid);
     }
 
     @Override
@@ -43,11 +47,13 @@ public class MahasiswaController extends ControllerBase<MahasiswaModel> {
     }
 
     @Override
-    public void viewItem() {
-        super.viewItem();
-        Scanner scanner = new Scanner(System.in);
-        int choice = InputValidator.handleIntegerInput(scanner, false);
-        handleViewMenuInput(choice, scanner);
+    public void viewItem(Scanner scanner) {
+        Boolean inputInvalid;
+        do {
+            super.viewItem(scanner);
+            int choice = InputValidator.handleIntegerInput(scanner, true);
+            inputInvalid = handleViewMenuInput(choice, scanner);
+        } while (inputInvalid);
     }
 
     @Override

@@ -15,7 +15,7 @@ public class Main {
         int choice = 0;
         while (choice != 4) {
             mahasiswaController.printMenu();
-            choice = mahasiswaController.handleMenuInput(InputValidator.handleIntegerInput(scanner, false));
+            choice = mahasiswaController.handleMenuInput(scanner, InputValidator.handleIntegerInput(scanner, true));
         }
     }
 }
