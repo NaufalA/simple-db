@@ -1,15 +1,22 @@
 import com.enigmacamp.simpledb.mahasiswa.MahasiswaController;
-import com.enigmacamp.simpledb.mahasiswa.MahasiswaRepository;
+import com.enigmacamp.simpledb.mahasiswa.MahasiswaFileRepository;
 import com.enigmacamp.simpledb.mahasiswa.MahasiswaService;
 import com.enigmacamp.simpledb.shared.utils.InputValidator;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        MahasiswaRepository mahasiswaRepository = new MahasiswaRepository(5);
+//        MahasiswaRepository mahasiswaRepository = new MahasiswaRepository(5);
+        MahasiswaFileRepository mahasiswaRepository;
+        try {
+            mahasiswaRepository = new MahasiswaFileRepository("out/pascal_10_mahasiswa.csv", 5);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         MahasiswaService mahasiswaService = new MahasiswaService(mahasiswaRepository);
         MahasiswaController mahasiswaController = new MahasiswaController(mahasiswaService, scanner, "Mahasiswa");
 

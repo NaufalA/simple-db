@@ -1,19 +1,18 @@
 package com.enigmacamp.simpledb.shared.classes;
 
-import com.enigmacamp.simpledb.shared.exceptions.CapacityLimitException;
-import com.enigmacamp.simpledb.shared.exceptions.InvalidDataException;
+import com.enigmacamp.simpledb.shared.interfaces.Repository;
 import com.enigmacamp.simpledb.shared.interfaces.Service;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public abstract class ServiceBase<T> implements Service<T> {
-    public final RepositoryBase<T> repository;
+    public final Repository<T> repository;
 
-    public ServiceBase(RepositoryBase<T> repository) {
+    public ServiceBase(Repository<T> repository) {
         this.repository = repository;
     }
 
-    public T createItem(T newItem) throws InvalidDataException, CapacityLimitException {
+    public T createItem(T newItem) throws Exception {
         repository.add(newItem);
         return newItem;
     }
@@ -22,7 +21,7 @@ public abstract class ServiceBase<T> implements Service<T> {
         return repository.delete(deletedIndex);
     }
 
-    public ArrayList<T> getAll() {
+    public List<T> getAll() {
         return repository.getAll();
     }
 

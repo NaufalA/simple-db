@@ -7,8 +7,8 @@ import com.enigmacamp.simpledb.shared.interfaces.Repository;
 import java.util.ArrayList;
 
 public abstract class RepositoryBase<T> implements Repository<T> {
-    public final ArrayList<T> storage;
-    public final Integer maxSize;
+    protected final ArrayList<T> storage;
+    protected final Integer maxSize;
 
     public RepositoryBase(Integer maxSize) {
         storage = new ArrayList<>();
